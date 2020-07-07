@@ -7,10 +7,9 @@
 
 using namespace std;
 
-const int N=105;
+const int N=105,dirx[]={0,0,1,-1},diry[]={1,-1,0,0};
 
-int r,c,a[N][N],ans;
-int dirx[4]={0,0,1,-1},diry[4]={1,-1,0,0},s[N][N];
+int r,c,a[N][N],ans,s[N][N];
 
 int dfs(int x,int y)
 {
@@ -21,7 +20,7 @@ int dfs(int x,int y)
     {
         int tx=x+dirx[i];
         int ty=y+diry[i];
-        if(tx>0 && tx<=r && ty>0 && ty<=c && s[x][y]>s[tx][ty])
+        if(tx>0 && ty>0 && tx<=r && ty<=c && a[x][y]>a[tx][ty])
         {
             dfs(tx,ty);
             s[x][y]=max(s[x][y],s[tx][ty]+1);

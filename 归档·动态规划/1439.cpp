@@ -1,7 +1,13 @@
-#include<bits/stdc++.h>
+#pragma GCC optimize(3)
+#include<cstdio>
+#include<algorithm>
+
 using namespace std;
+
 const int N=1005;
-int n,a[N],b[N],dp[N][N];//dp[i][j]£¬a×Ö·û´®Ç°i¸ö³¤¶ÈºÍb×Ö·û´®Ç°j¸ö³¤¶ÈµÄ×î³¤¹«¹²×Ó´®³¤¶È 
+
+int n,a[N],b[N],dp[N][N];//dp[i][j]ï¿½ï¿½aï¿½Ö·ï¿½ï¿½ï¿½Ç°iï¿½ï¿½ï¿½ï¿½ï¿½Èºï¿½bï¿½Ö·ï¿½ï¿½ï¿½Ç°jï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½î³¤ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ 
+
 int main()
 {
 	scanf("%d",&n);
