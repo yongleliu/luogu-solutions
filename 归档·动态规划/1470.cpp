@@ -31,7 +31,6 @@ int main()
         string cur="";
         for(int j=i;j<=s.length();++j)
             cur+=s[j];
-        
     }
     return 0;
 }

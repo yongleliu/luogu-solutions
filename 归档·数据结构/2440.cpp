@@ -15,12 +15,10 @@ inline int Longest(int x)
 {
     int ans=0;
     for(register int i=n;i>=1;--i)
-    {
         if(a[i]/x)
             ans+=a[i]/x;
         else
             return ans;
-    }
     return ans;
 }
 

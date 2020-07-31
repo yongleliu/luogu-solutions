@@ -15,9 +15,12 @@ int len,longlength;
 
 void readString()
 {
-    int n=0;
-    while(scanf("%c",&s[n])!=EOF)
-        ++n;
+    string line;
+    while(cin.getline(line,88))
+    {
+        strcat(org,line);
+        strcat(org,"\n");
+    }
 }
 
 void string_elementLower()

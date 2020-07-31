@@ -1,4 +1,5 @@
 #include<cstdio>
+#include<algorithm>
 #include<cstring>
 #include<string>
 
@@ -10,12 +11,12 @@ int n,k,ans;
 int l=2,r,mid;
 bool a[N];
 char c[N];
-char fn[2]={'F','N'};
 
 inline bool Find()
 {
     int tot=0,cnt=1;
     bool t=a[1];
+    //第一个点强制不改
     for(int i=2;i<=n;++i)
     {
         if(a[i]==t)
@@ -32,7 +33,30 @@ inline bool Find()
             t=!t;
         }
     }
-    if(tot<=k)
+    int tott=1;
+    cnt=1;
+    if(a[1])
+        t=0;
+    else
+        t=1;
+    //第一个点强制改
+    for(int i=2;i<=n;++i)
+    {
+        if(a[i]==t)
+            ++cnt; //cnt记录同类型个数
+        else
+        {
+            cnt=1;
+            t=!t;
+        }
+        if(cnt>mid)
+        {
+            ++tott;
+            cnt=1;
+            t=!t;
+        }
+    }
+    if(min(tot,tott)<=k)
         return true;
     else
         return false;
@@ -41,12 +65,16 @@ inline bool Find()
 int main()
 {
     scanf("%d%d",&n,&k);
-    r=n+1;
+    r=n;
     scanf("%s",c);
     int p=0;
     for(int i=0;i<n;++i)
-        if(c[i]==c[i%2])
+    {
+        if(i%2==0 && c[i]=='N')
             ++p;
+        if(i%2==1 && c[i]=='F')
+            ++p;
+    }
     if(p<=k || n-p<=k) {
         printf("1\n");
         return 0;
